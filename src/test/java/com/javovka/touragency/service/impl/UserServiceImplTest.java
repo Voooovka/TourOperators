@@ -43,21 +43,21 @@ class UserServiceImplTest {
         User oldUser = new User(1L, "arsen", "zaika", Date.from(Instant.now()), "password", new Role(1L,"USER"));
         User user = new User(1L, "vovka", "kakashka", Date.from(Instant.now()), "password123", new Role(1L,"USER"));
 
-        given(userRepo.findUserById(id)).willReturn(oldUser); // захардкодимо ніби бд повертає старого юзера якого треба апдейтнути
+        given(userRepo.findUserById(id)).willReturn(oldUser);
 
-        userService.updateUser(id, user); // викликаємо метод який тестимо
+        userService.updateUser(id, user); 
 
-        ArgumentCaptor<User> argumentCaptor = ArgumentCaptor.forClass(User.class);// створюємо обєкт який буде перехоплювати
+        ArgumentCaptor<User> argumentCaptor = ArgumentCaptor.forClass(User.class);
 
-        Mockito.verify(userRepo).save(argumentCaptor.capture());//перехоплюємо обєкт який база повертає з методу сейв
+        Mockito.verify(userRepo).save(argumentCaptor.capture());
 
-        User capturedUser = argumentCaptor.getValue();// отримуємо юзера якого перехопили
+        User capturedUser = argumentCaptor.getValue();
 
-        assertThat(capturedUser.getId()).isEqualTo(user.getId()); // порівнюємо того якого очікували та того якого отримали
-        assertThat(capturedUser.getUsername()).isEqualTo(user.getUsername()); // порівнюємо того якого очікували та того якого отримали
-        assertThat(capturedUser.getLastname()).isEqualTo(user.getLastname()); // порівнюємо того якого очікували та того якого отримали
-        assertThat(capturedUser.getBirthdate()).isEqualTo(user.getBirthdate()); // порівнюємо того якого очікували та того якого отримали
-        assertThat(capturedUser.getPassword()).isEqualTo(user.getPassword()); // порівнюємо того якого очікували та того якого отримали
+        assertThat(capturedUser.getId()).isEqualTo(user.getId()); 
+        assertThat(capturedUser.getUsername()).isEqualTo(user.getUsername()); 
+        assertThat(capturedUser.getLastname()).isEqualTo(user.getLastname()); 
+        assertThat(capturedUser.getBirthdate()).isEqualTo(user.getBirthdate());
+        assertThat(capturedUser.getPassword()).isEqualTo(user.getPassword()); 
 
 
 
