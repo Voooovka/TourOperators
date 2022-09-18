@@ -21,7 +21,7 @@ public class User {
     private Long id;
     private String username;
     private String lastname;
-    private Date bitrhdate;
+    private Date birthdate;
     private String password;
 
     @ManyToOne

@@ -19,8 +19,6 @@ public class TourOperatorServiceImpl implements TourOperatorService {
 
     private final TourOperatorRepo tourOperatorRepo;
 
-
-
     @Override
     public List<TourOperator> gerTourOperators() {
         return tourOperatorRepo.findAll();

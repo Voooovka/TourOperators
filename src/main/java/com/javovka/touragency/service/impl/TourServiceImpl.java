@@ -42,7 +42,7 @@ public class TourServiceImpl implements TourService {
 
         newTour.setName(tour.getName());
         newTour.setTourOperator(tour.getTourOperator());
-        newTour.setName(tour.getName());
+        newTour.setTourType(tour.getTourType());
 
         tourRepo.save(newTour);
 
